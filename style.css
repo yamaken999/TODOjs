@@ -1,0 +1,106 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app-header {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.add-task-form, .add-status-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.todo-board {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.status-column {
+    background-color: #e9ecf0;
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.status-column h2 {
+    font-size: 18px;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d0d5db;
+    color: #2c3e50;
+}
+
+.task-list {
+    min-height: 100px;
+    padding: 0;
+    margin: 0;
+}
+
+.task {
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    cursor: grab;
+    transition: opacity 0.3s, box-shadow 0.3s;
+}
+
+.task:last-child {
+    margin-bottom: 0;
+}
+
+.task.dragging {
+    opacity: 0.5;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.status-column.drag-over .task-list {
+    background-color: #dce4ef;
+    border-radius: 4px;
+}

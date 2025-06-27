@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>TODOリスト</h1>
+            <div class="add-task-form">
+                <input type="text" id="new-task-input" placeholder="新しいタスクを入力...">
+                <button id="add-task-btn">追加</button>
+            </div>
+            <div class="add-status-form">
+                <input type="text" id="new-status-input" placeholder="新しいステータスを追加...">
+                <button id="add-status-btn">ステータス追加</button>
+            </div>
+        </header>
+        <main id="board" class="todo-board">
+            <!-- ステータスカラムはここに動的に追加されます -->
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
