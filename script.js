@@ -54,12 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
             filteredTasks.forEach(task => {
                 const taskElement = document.createElement('div');
                 taskElement.className = 'task';
-                taskElement.textContent = task.text;
+                const textSpan = document.createElement('span');
+                textSpan.textContent = task.text;
+                taskElement.appendChild(textSpan);
                 taskElement.draggable = true;
                 taskElement.dataset.taskId = task.id;
 
                 taskElement.addEventListener('dragstart', handleDragStart);
                 taskElement.addEventListener('dragend', handleDragEnd);
+                taskElement.addEventListener('click', () => enableEditing(taskElement, task));
 
                 taskList.appendChild(taskElement);
             });
@@ -142,6 +145,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addTaskBtn.addEventListener('click', addTask);
     addStatusBtn.addEventListener('click', addStatus);
+
+    function enableEditing(taskElement, task) {
+        const textSpan = taskElement.querySelector('span') || taskElement;
+        const currentText = task.text;
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = currentText;
+        input.className = 'edit-task-input';
+
+        input.addEventListener('blur', () => updateTask(task, input.value));
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                input.blur();
+            }
+        });
+
+        taskElement.innerHTML = '';
+        taskElement.appendChild(input);
+        input.focus();
+    }
+
+    function updateTask(task, newText) {
+        task.text = newText.trim() || task.text;
+        saveData();
+        renderBoard();
+    }
 
     // Initial Load
     loadData();

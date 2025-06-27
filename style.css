@@ -95,6 +95,15 @@ button:hover {
     margin-bottom: 0;
 }
 
+.edit-task-input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: inherit;
+}
+
 .task.dragging {
     opacity: 0.5;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
